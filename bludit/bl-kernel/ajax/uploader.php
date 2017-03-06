@@ -1,0 +1,85 @@
+<?php defined('BLUDIT') or die('Bludit CMS.');
+
+header('Content-Type: application/json');
+
+// Type
+$type = 'other';
+if(!empty($_POST['type'])) {
+	$type = Sanitize::html($_POST['type']);
+}
+
+// Source.
+$source = $_FILES['files']['tmp_name'][0];
+
+// Filename and extension.
+$filename = Text::lowercase($_FILES['files']['name'][0]);
+$fileExtension = pathinfo($filename, PATHINFO_EXTENSION);
+$filename = pathinfo($filename, PATHINFO_FILENAME);
+$filename = Text::replace(' ', '', $filename);
+$filename = Text::replace('_', '', $filename);
+
+// Check extension
+$validExtension = array('tiff', 'gif', 'png', 'jpg', 'jpeg', 'bmp');
+if( !in_array($fileExtension, $validExtension) ) {
+	exit(json_encode(array(
+		'status'=>1,
+		'msg'=>'Invalid extension file.'
+	)));
+}
+
+// Generate the next filename if the filename already exist.
+$tmpName = $filename.'.'.$fileExtension;
+if( file_exists(PATH_UPLOADS.$tmpName) )
+{
+	$number = 0;
+	$tmpName = $filename.'_'.$number.'.'.$fileExtension;
+	while(file_exists(PATH_UPLOADS.$tmpName)) {
+		$number++;
+		$tmpName = $filename.'_'.$number.'.'.$fileExtension;
+	}
+}
+
+// Move from temporary PHP folder to temporary Bludit folder.
+move_uploaded_file($source, PATH_TMP.'original'.'.'.$fileExtension);
+
+// --- PROFILE PICTURE ---
+if($type=='profilePicture')
+{
+	// Resize and crop profile image.
+	$username = Sanitize::html($_POST['username']);
+	$tmpName = $username.'.png';
+	$Image = new Image();
+	$Image->setImage(PATH_TMP.'original'.'.'.$fileExtension, PROFILE_IMG_WIDTH, PROFILE_IMG_HEIGHT, 'crop');
+	$Image->saveImage(PATH_UPLOADS_PROFILES.$tmpName, PROFILE_IMG_QUALITY, false, true);
+}
+// --- OTHERS ---
+else {
+	// Generate the thumbnail
+	$Image = new Image();
+
+	//Handling all other formats than svg
+	if (strcasecmp($fileExtension, 'svg') != 0) {
+		$Image->setImage(PATH_TMP.'original'.'.'.$fileExtension, THUMBNAILS_WIDTH, THUMBNAILS_HEIGHT, 'crop');
+		$Image->saveImage(PATH_UPLOADS_THUMBNAILS.$tmpName, THUMBNAILS_QUALITY, true);
+	}
+
+	// Move the original to the upload folder.
+	rename(PATH_TMP.'original'.'.'.$fileExtension, PATH_UPLOADS.$tmpName);
+
+	//If it is a svg file, just save a copy in thumbnail-folder
+	if (strcasecmp($fileExtension, 'svg') == 0) {
+		symlink(PATH_UPLOADS.$tmpName, PATH_UPLOADS_THUMBNAILS.$tmpName);
+	}
+}
+
+// Remove the Bludit temporary file.
+if(file_exists(PATH_TMP.'original'.'.'.$fileExtension)) {
+	unlink(PATH_TMP.'original'.'.'.$fileExtension);
+}
+
+exit(json_encode(array(
+	'status'=>0,
+	'filename'=>$tmpName
+)));
+
+?>
