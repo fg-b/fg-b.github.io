@@ -195,6 +195,8 @@ kicker.kick();
 
 #### Contains (.h, .cpp)
 
+> The Light libraries purpose is to read, collect and analyse data from the 20 lightsensors on the bottom of the robot. It does this by preforming an analogRead on all 20 pins connected to the sensors, it then calculates a line using quadrants of triggered sensors. With this information, the robot then calculates a line average from which it moves away from. The robot also stores values for the line location allowing it to be pushed over the line and still make a recovery back into the play area.
+
 The Light library controls all 20 lightsensors on the botom of the robot and keeps us from going out over the white line. The library reads the 20 lightsensors situated in a circular pattern giving us full control of the robots position relative to the line.
 
 To use the Light library, import it into your main c++ file
@@ -216,6 +218,8 @@ To be completely honest, the other programmer not writing this (Alistair) wrote 
 # Motor
 
 #### Contains (.h, .cpp)
+
+> The motor libaray has the purpose of splitting a single input value into all the requirements to control the motors via the LMD18200T motor controllers. The *set* method takes in a pwm value between -255 to 255 and then writes that value as a speed to the motor. The motor controller have 4 primary inputs that the microcontroller must handle. They are direction, pwm, brake and reversed. The direction pin simply controls whether the motor spins forwards or backwards, this binary value is determined by the sign infront of the pwm value given to the motor. The pwm is absolute value between 0-255. The brake pin is set low during use of the motor as to not damage it. The reversed pin simply sets the default direction of the motor from the get go, this allows you to make all the motors spin in one direction when given only power. 
 
 The motor library controls our 4 Maxon DCX Motors using the LMD18200T motor control chip. The library writes Pulse Width Modulation values to the motor controllers giving us movement.
 
@@ -248,6 +252,8 @@ motorA.brake();
 
 #### Contains (.h, .cpp)
 
+> The Read TSOPs libaray reads, identifies and calculates the most accurate location of the ball. The read tsops libaray also controls the 'orbit' of the robot. The orbit is the robots projected path to get behind the ball to prevent the ball from reaching our own goal. The *read* method in Read TSOPs is where most of the critical jobs are preformed. Inside the read function the tsops are read a total of 512 times to get an accurate location followed by filtering and trig calculations.
+
 The Read TSOPs library reads and controls our TSOP infared sensors. The TSOPs are the robots primary way of ball detection.
 
 To use the Read TSOPs library, import it into your main c++ file
@@ -276,6 +282,8 @@ tsops.moveTangent();
 
 #### Contains (.h, .cpp)
 
+> The rotation controller doesnt work.
+
 The Rotation Controller library handles all rotational (non directional) movement. The rotation controller takes both pixy and compass input into account and acts accordingly.
 
 To use the Rotation Controller libaray, import it into your main c++ file
@@ -297,6 +305,8 @@ Unfortunately the Rotation Controller contains code that is very specific to our
 # Primary C++ File Source
 
 #### Master
+
+> The Master controls the motors, solenoid, pixy and compass (maybe SRF10s?).
 
 ```c++
 #include <Config.h>
@@ -369,6 +379,8 @@ void blinkLED(){
 
 #### TSOP
 
+> The TSOP slave controls and calculates tsop and ball locations.
+
 ```c++
 #include <ReadTSOPS.h>
 #include <Config.h>
@@ -400,6 +412,8 @@ void spi0_isr(){
 ```
 
 #### Light
+
+> The Light slave calculates lightsensors and robot / field positions.
 
 ```c++
 //#include <t3spi.h>
