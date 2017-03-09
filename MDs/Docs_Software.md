@@ -26,7 +26,7 @@
 
 [Brisbane Boys' College, Queensland Australia](http://bbc.qld.edu.au)
 
-
+[Pins Document](../pins.html)
 
 -----
 
