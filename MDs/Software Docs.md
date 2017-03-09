@@ -4,7 +4,37 @@
 
 -----
 
+# Installation 
 
+To use our code source, clone the repo
+
+```shell
+mkdir FG&BCode
+cd FG&BCode
+git clone https://github.com/TomFraser/FG-B-2017.git
+```
+
+Install Platformio for arduino compiler
+
+```shell
+pip3 install platformio
+```
+
+Run and upload code
+
+```shell
+cd FG-B-2017
+cd [] #Motor, Light or TSOP
+
+#To Compile
+pio run
+#To Upload
+pio run -t upload
+```
+
+
+
+Please remember that the code source is preset with our pinouts and configuration. For more information please visit the hardware docs.
 
 # Buzzer
 
