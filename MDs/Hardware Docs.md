@@ -30,6 +30,8 @@ This can be seen in the diagram below:
 
 # Solenoid
 
+##### Takaha Kiko CB1037
+
 The solenoid used on the 2017 robot was a Takaha Kiko CB1037 open frame push solenoid. This solenoid is powered at 50V through the use of a voltage pump (found on Ebay, of course) and a charging circuit. This circuit stores 2000uf of charge at 50V for each kick. The original setup can be seen below:
 
 ![solenoidCircuit1](../images/SolenoidCircuit1.png)
