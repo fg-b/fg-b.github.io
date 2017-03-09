@@ -1,6 +1,6 @@
 
 
-#### Documentation written by Cooper Richmond
+#### Documentation written by Cooper Richmond and Thomas Hulbert
 
 -----
 
@@ -25,7 +25,7 @@
 | **MOTOR 3**          | PWM 3           | 21       |
 |                      | BRAKE 3         | 20       |
 |                      | DIRECTION 3     | 22       |
-|                      | CURRENT SENSE 3 | *D.N.E.* |
+|                      | CURRENT SENSE 3 | *D.N.C.* |
 | **INDICATOR LEDS**   | LED 1           | 28       |
 |                      | LED 2           | 27       |
 |                      | LED 3           | 26       |
@@ -33,6 +33,8 @@
 | **SOLENOID**         | SOLENOID ENABLE | 9        |
 | **LIGHT GATE**       | LIGHT GATE IN   | A12      |
 | **BUZZER**           | BUZZER ENABLE   | A13      |
+| **Tactile Button**   | Button 1        | 24       |
+|                      | Button 2        | 33       |
 | **I2C**              | *Not Connected* | *BUS* 0  |
 |                      | SENSOR BUS      | *BUS* 1  |
 | **SPI SLAVE SELECT** | LIGHT (SS)      | 15 / A0  |
@@ -61,7 +63,7 @@
 |           | TSOP **POWER**  | 22      |
 |           | TSOP **POWER**  | 23      |
 | **I2C**   | *Not Connected* |         |
-|           | SENSOR BUS      | *BUS* 1 |
+|           | SENSOR BUS      | *BUS 1* |
 
 ### Light Teensy
 
@@ -86,4 +88,13 @@
 |                   | SENSOR 16 | A17  |
 |                   | SENSOR 17 | A18  |
 |                   | SENSOR 18 | A19  |
-|                   | SENSOR 19 | A20  |
+
+## Sensors
+
+| Section       | Function | Address/Bus  |
+| ------------- | -------- | ------------ |
+| **Gyroscope** |          | *0x68/BUS 1* |
+| **SRF10**     | SRF10-1  | *0xE0/BUS 1* |
+|               | SRF10-2  | *0xE0/BUS 1* |
+|               | SRF10-3  | *0xE0/BUS 1* |
+|               | SRF10-4  | *0xE0/BUS 1* |
