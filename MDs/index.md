@@ -14,7 +14,7 @@
 
 
 
-![FG&B Logo](../images/FG&BFooter.png)
+![FG&B Logo](FG&BFooter.png)
 
 ---
 
