@@ -1,24 +1,4 @@
-#FG&B 2017
 
-###Welcome to FG&B 2017
-
-## Notable Achievements for 2017
-
-##### Regionals:
-
-##### States:
-
-##### Nationals:
-
-----------
-
-
-
-![FG&B Logo](../images/FG&BFooter.png)
-
------------------------
-
-##### 
 
 #### Documentation written by Thomas Fraser & Alistair English
 
@@ -428,7 +408,5 @@ void loop(){
 
 ---
 
-# Hardware Docs
 
-[Hardware Docs](/Pins.html)
 
