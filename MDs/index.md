@@ -10,13 +10,9 @@
 
 ##### Nationals:
 
-------
-
-
-
-![FG&B Logo](FG&BFooter.png)
-
 ---
+
+## Docs
 
 [Software Docs](html/software.html)
 
@@ -24,3 +20,14 @@
 
 [Pins](html/pins.html)
 
+---
+
+## Websites
+
+[FG&B Website](http://fgb.bbcrobotics.org)
+
+[Brisbane Boys' College, Queensland Australia](http://bbc.qld.edu.au)
+
+---
+
+![FG&B Logo](FG&BFooter.png)

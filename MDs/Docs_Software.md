@@ -2,12 +2,6 @@
 
 #### Documentation written by Thomas Fraser & Alistair English
 
-[FG&B Website](http://fgb.bbcrobotics.org)
-
-[Brisbane Boys' College, Queensland Australia](http://bbc.qld.edu.au)
-
-[Pins Document](../pins.html)
-
 -----
 
 
