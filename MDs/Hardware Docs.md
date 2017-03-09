@@ -4,6 +4,10 @@
 
 -----
 
+*Please Refer To The Docs When Assembling The Robot*
+
+------
+
 # Motors
 
 #### Maxon DCX19 + 21:1 19mm Gear Box
@@ -23,8 +27,6 @@ This can be seen in the diagram below:
 
 
 ------
-
-
 
 # Solenoid
 
