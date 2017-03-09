@@ -10,7 +10,7 @@
 
 #### Contains (.h)
 
-The Buzzer library is used to control an analog buzzer build into FG&B's 2017 robots.
+> The buzzer libraries primary job is to control the buzzer used for feedback on the robot’s condition during match or debugging. The buzzer library consists of one primary class and three primary functions; *playTone*, *errorTone* & *readyTone.* The *playTone* method takes in one input of type integer and plays a buzz sound for the time specified (in milliseconds) in the input. It does this by pulling a digital pin on the Teensy and connected to the buzzer to the high state which then plays a tone. After the delay the pin is pulled low stopping the sound. The *errorTone* method is sounded when the robot encounters an error. The method simply sounds the buzzer and will not stop until the program is stopped. The final method *readyTone* plays when the robot and completed its setup which includes checking the SPI communication between the three teensy controllers on each robot. The tone is simply used to notify the user when setup is complete and the robot is ready to be used.
 
 To use the library, import it to your main c++ file
 
@@ -36,7 +36,7 @@ audio.playTone(200);
 
 #### Contains (.h, .cpp)
 
-The Compass library is use to control the MPU9250 Compass, Gyro and Accelerometer package. The compass' purpose is to keep the robot facing the oppositions goal.
+> The compass library handles the task of controlling the mpu9250 9-axis compass, gyro and magnetometer chip. The compass communicates with the Teensy using the I2c protocol. The library consists of many public and private methods; *calibrate, read, update, getHeading, setTarget*. The *calibrate* method handles the task of calibrating the compass, specifically the gyroscope. It does this by taking multiple reading over a certain delay to find the drift of the gyroscope while the robot is standing still. This allows us to counter the natural drift that the gyro has. Each reading throughout the game will take or add the drift to ensure that all headings are accurate. The *read* method simply takes a reading from the compass over I2c and gets the Z component (from XYZ) of the gyroscope. It then returns the reading from the gyro. The *update* method takes the reading, counters the drift and mods the value from 0 to 360 degrees. This allows us to have an accurate heading in degrees. We store this heading and use it later. The *setTarget* method takes in one variable being of type double which allows the software to set the desired heading of the robot. This allows us to easily make the robot face towards the goal by changing the target heading that the robot is trying to achieve. The *getHeading* method adds 180 to the heading which means that instead of 0,360 being at the centre of the robot, 180 is. This helps because if 0,360 is at the centre front, the robot ticks between the two values and doesn’t correct as well. There are other ways to fix this but by adding 180 to the heading is the easiest and fastest option software wise.
 
 To use the library, import it into your main c++ file
 
@@ -63,7 +63,7 @@ double heading = compass.getFinalHeading();
 
 #### Contains (.h)
 
-
+> The different header files under the name config is where most variables that can be changed live along with constants and pin definitions. Each header file consists of mostly *\#define* constants that can be changed by the user to dictate how the robot plays. This is simply a much cleaner way of having a setting file.
 
 ## Config.h
 
@@ -91,7 +91,7 @@ To use these libraries import them using
 
 #### Contains (.h, .cpp)
 
-The direction controller controls all all directional movement via four Maxon DCX motors. The direction controller takes in inputs from the TSOPs and Lightsensors and determines an angle at which to move on.
+The direction controllers main purpose is to handle the final movement of the robot. The library itself receives sensor information and sorts it into a final direction of movement for the robot. The methods within the library are; *calcMotors, calcLight and move.* The *calcMotors* method had two separate definitions, one that calculates an exact angle to move and one that calculates a restricted angle based on input in the program. The job of *calcMotors* is to use trigonometry to find a final *pwm* value to write to the motor (set between -255 and 255). The equation used is as follows: $\cos\left( motorAngle + 90 \right)\left( \text{radians} \right) - angleToBall\left( \text{radians} \right)*255$. The second definition of *calcMotors* simply limits the output of the above equation to factors of 45, giving the robot 8 directions of orbit. The *calcMotors* method also takes in the rotation determined by the *Rotation Controller* library. The *calcLight* method simply takes an input from the Light Sensor library in the form of a direction and sets the angle to move to said angle. If the Light Sensors aren’t seeing anything of value, the method returns a struct with the values of a Boolean and integer in the format of: *{false, 0} or {true, \_\_angle\_\_}*. The *move* method simply checks the returned values from *calcLight* to determine which angle to follow, the one from the light sensors or the ball. It then calls the *calcMotors* method with the final angle as an input and adds rotation from the *Rotation Controller* library.
 
 To use the library, import it into your main c++ file
 
@@ -135,7 +135,9 @@ To use the library, import it into your main c++ file
 
 #### Contains (.h)
 
-The Kicker libary controls the actions of the solenoid and lightgate on each robot, allowing us to kick goals from a distance.
+> The Kicker libraries primary purpose is to control the solenoid and light gate. The library consists of three methods; *kickerReady, checkLightGate and kickBall*. The *kickerReady* method checks to make sure that a delay between kicking the ball occurs. The capacitors that power the solenoid need time to charge back to capacity. During this time, it is advised that the kicker isn’t used. The *kicker\_delay* constant is used to determine how long of a gap exists between the solenoid kicking. The *checkLightGate* method simply checks whether the light gate used for detecting the ball has been broken. If the light gate has been broken the kicker is ready to kick. The *kickBall* method simply triggers the solenoid and kicks the ball.
+
+
 
 To use the library, import it into your main c++ file
 
