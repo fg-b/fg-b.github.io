@@ -2,14 +2,14 @@
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>FG&B Docs</title><link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css'><style type='text/css'>html, body {overflow-x: initial !important;}html { font-size: 14px; background-color: rgb(255, 255, 255); color: rgb(51, 51, 51); }
+<title>FGB Docs</title><link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css'><style type='text/css'>html, body {overflow-x: initial !important;}html { font-size: 14px; background-color: rgb(255, 255, 255); color: rgb(51, 51, 51); }
 body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 1rem; line-height: 1.42857143; overflow-x: hidden; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit inherit; background-repeat: inherit inherit; }
 a:active, a:hover { outline: 0px; }
 .in-text-selection, ::selection { background-color: rgb(181, 214, 252); text-shadow: none; background-position: initial initial; background-repeat: initial initial; }
 #write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; padding-bottom: 70px; white-space: pre-wrap; overflow-x: auto; }
 .for-image #write { padding-left: 8px; padding-right: 8px; }
 body.typora-export { padding-left: 30px; padding-right: 30px; }
-@media screen and (max-width: 500px) { 
+@media screen and (max-width: 500px) {
   body.typora-export { padding-left: 0px; padding-right: 0px; }
   .CodeMirror-sizer { margin-left: 0px !important; }
   .CodeMirror-gutters { display: none !important; }
@@ -35,9 +35,9 @@ p { -webkit-margin-before: 1rem; -webkit-margin-after: 1rem; -webkit-margin-star
 .md-blockmeta { color: rgb(204, 204, 204); font-weight: bold; font-style: italic; }
 a { cursor: pointer; }
 #write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; margin: 4px 0px 0px; }
-tr { break-inside: avoid; break-after: auto; }
+tr { page-break-inside: avoid; page-break-after: auto; }
 thead { display: table-header-group; }
-table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; page-break-inside: auto; text-align: left; }
 table.md-table td { min-width: 80px; }
 .CodeMirror-gutters { border-right-width: 0px; background-color: inherit; }
 .CodeMirror { text-align: left; }
@@ -47,7 +47,7 @@ table.md-table td { min-width: 80px; }
 div.hr:focus { cursor: none; }
 pre { white-space: pre-wrap; }
 .CodeMirror-gutters { margin-right: 4px; }
-.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; position: relative !important; background-position: inherit inherit; background-repeat: inherit inherit; }
+.md-fences { font-size: 0.9rem; display: block; page-break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; position: relative !important; background-position: inherit inherit; background-repeat: inherit inherit; }
 .md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
 .md-fences .CodeMirror.CodeMirror-wrap { top: -1.6em; margin-bottom: -1.6em; }
 .md-fences.mock-cm { white-space: pre-wrap; }
@@ -63,10 +63,10 @@ li { margin: 0px; position: relative; }
 blockquote > :last-child { margin-bottom: 0px; }
 blockquote > :first-child { margin-top: 0px; }
 .footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; }
-@media print { 
+@media print {
   html, body { height: 100%; }
   .typora-export * { -webkit-print-color-adjust: exact; }
-  h1, h2, h3, h4, h5, h6 { break-after: avoid-page; orphans: 2; }
+  h1, h2, h3, h4, h5, h6 { page-break-after: avoid; break-after: avoid-page; orphans: 2; }
   p { orphans: 4; }
   html.blink-to-pdf { font-size: 13px; }
   .typora-export #write { padding-left: 1cm; padding-right: 1cm; }
@@ -98,7 +98,7 @@ p + .mathjax-block { margin-top: -1.143rem; }
 .md-toc-h4 .md-toc-inner { margin-left: 6em; }
 .md-toc-h5 .md-toc-inner { margin-left: 8em; }
 .md-toc-h6 .md-toc-inner { margin-left: 10em; }
-@media screen and (max-width: 48em) { 
+@media screen and (max-width: 48em) {
   .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
   .md-toc-h4 .md-toc-inner { margin-left: 5em; }
   .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
@@ -119,13 +119,13 @@ a.md-print-anchor { border: none !important; display: inline-block !important; p
 .MathJax_SVG .MJX-monospace { font-family: monospace; }
 .MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
 .MathJax_SVG { display: inline; font-style: normal; font-weight: normal; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
-.MathJax_SVG * { transition: none; }
+.MathJax_SVG * { -webkit-transition: none; transition: none; }
 
 
 @include-when-export url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
 
 /**
- * css forked from https://github.com/GitbookIO/gitbook 
+ * css forked from https://github.com/GitbookIO/gitbook
  * www.gitbook.com
  * Apache License
  * https://github.com/GitbookIO/gitbook/blob/master/LICENSE
@@ -135,28 +135,28 @@ a.md-print-anchor { border: none !important; display: inline-block !important; p
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: normal;
-    src: local('Open Sans Regular'),url('file:///Users/Thomas/Library/Application%20Support/abnerworks.Typora/themes/github/400.woff') format('woff')
+    src: local('Open Sans Regular'),url('file:///Users/hulbertmac/Library/Application%20Support/abnerworks.Typora/themes/github/400.woff') format('woff')
 }
 
 @font-face {
     font-family: 'Open Sans';
     font-style: italic;
     font-weight: normal;
-    src: local('Open Sans Italic'),url('file:///Users/Thomas/Library/Application%20Support/abnerworks.Typora/themes/github/400i.woff') format('woff')
+    src: local('Open Sans Italic'),url('file:///Users/hulbertmac/Library/Application%20Support/abnerworks.Typora/themes/github/400i.woff') format('woff')
 }
 
 @font-face {
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: bold;
-    src: local('Open Sans Bold'),url('file:///Users/Thomas/Library/Application%20Support/abnerworks.Typora/themes/github/700.woff') format('woff')
+    src: local('Open Sans Bold'),url('file:///Users/hulbertmac/Library/Application%20Support/abnerworks.Typora/themes/github/700.woff') format('woff')
 }
 
 @font-face {
     font-family: 'Open Sans';
     font-style: italic;
     font-weight: bold;
-    src: local('Open Sans Bold Italic'),url('file:///Users/Thomas/Library/Application%20Support/abnerworks.Typora/themes/github/700i.woff') format('woff')
+    src: local('Open Sans Bold Italic'),url('file:///Users/hulbertmac/Library/Application%20Support/abnerworks.Typora/themes/github/700i.woff') format('woff')
 }
 
 html {
@@ -209,7 +209,7 @@ h3:hover a.anchor,
 h4:hover a.anchor,
 h5:hover a.anchor,
 h6:hover a.anchor {
-    /*background: url("file:///Users/Thomas/Library/Application%20Support/images/modules/styleguide/para.png") no-repeat 10px center;*/
+    /*background: url("file:///Users/hulbertmac/Library/Application%20Support/images/modules/styleguide/para.png") no-repeat 10px center;*/
     text-decoration: none;
 }
 h1 tt,
@@ -481,7 +481,7 @@ tt {
 	color: inherit;
 }
 
-.md-toc { 
+.md-toc {
     margin-top:20px;
     padding-bottom:20px;
 }
@@ -515,6 +515,6 @@ header, .context-menu, .megamenu-content, footer{
 </style>
 </head>
 <body class='typora-export' >
-<div  id='write'  class = 'is-mac'><h1><a name='header-c5' class='md-header-anchor '></a>FG&amp;B 2017</h1><h3><a name='header-c7' class='md-header-anchor '></a>Welcome to FG&amp;B 2017</h3><h2><a name='header-c8' class='md-header-anchor '></a>Notable Achievements for 2017</h2><h5><a name='header-c9' class='md-header-anchor '></a>Regionals:</h5><h5><a name='header-c10' class='md-header-anchor '></a>States:</h5><h5><a name='header-c11' class='md-header-anchor '></a>Nationals:</h5><hr /><h2><a name='header-c74' class='md-header-anchor '></a>Docs</h2><p><a href='html/software.html'>Software Docs</a></p><p><a href='html/hardware.html'>Hardware Docs</a></p><p><a href='html/pins.html'>Pins</a></p><hr /><h2><a name='header-c47' class='md-header-anchor '></a>Websites</h2><p><a href='http://fgb.bbcrobotics.org'>FG&amp;B Website</a></p><p><a href='http://bbc.qld.edu.au'>Brisbane Boys&#39; College, Queensland Australia</a></p><hr /><p><img src='FG&BFooter.png' alt='FG&amp;B Logo' /></p></div>
+<div  id='write'  class = 'is-mac'><h1><a name='header-c5' class='md-header-anchor '></a>FG&amp;B 2017</h1><h3><a name='header-c7' class='md-header-anchor '></a>Welcome to FG&amp;B 2017</h3><h2><a name='header-c8' class='md-header-anchor '></a>Notable Achievements for 2017</h2><h5><a name='header-c9' class='md-header-anchor '></a>Regionals:</h5><h5><a name='header-c10' class='md-header-anchor '></a>States:</h5><h5><a name='header-c11' class='md-header-anchor '></a>Nationals:</h5><hr /><h2><a name='header-c13' class='md-header-anchor '></a>Docs</h2><p><a href='html/software.html'>Software Docs</a></p><p><a href='html/hardware.html'>Hardware Docs</a></p><p><a href='html/development.html'>Development</a></p><p><a href='html/pins.html'>Pins</a></p><hr /><h2><a name='header-c21' class='md-header-anchor '></a>Websites</h2><p><a href='http://fgb.bbcrobotics.org'>FG&amp;B Website</a></p><p><a href='http://bbc.qld.edu.au'>Brisbane Boys&#39; College, Queensland Australia</a></p><hr /><p><img src='FG&BFooter.png' alt='FG&amp;B Logo' /></p></div>
 </body>
 </html>
