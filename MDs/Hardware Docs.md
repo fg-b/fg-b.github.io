@@ -34,7 +34,7 @@ This can be seen in the diagram below:
 
 The solenoid used on the 2017 robot was a Takaha Kiko CB1037 open frame push solenoid. This solenoid is powered at 50V through the use of a voltage pump (found on Ebay, of course) and a charging circuit. This circuit stores 2000uf of charge at 50V for each kick. The original setup can be seen below:
 
-![solenoidCircuit1](../images/SolenoidCircuit1.PNG)
+![solenoidCircuit1](../images/SolenoidCircuit1.jpg)
 
 Unfortunately, the firing setup for this charging circuit did not work, and a fix is still being investigated.
 
@@ -50,7 +50,7 @@ The lower plate is home to the light sensor PCB, voltage booster circuit, soleno
 
 ***Insert Pic of Lower Assembly** - Without Motors, etc (assembled in box)*
 
-After the first robot was assembled, it was discovered that the initial plates would not be appropriate for use on the robot after a number of plate breakage occurred at relatively low speeds. The initial design used brittle acrylic, as that was only opaque material our robotics laser cutting contact could supply. After some testing, the decision was made for the middle plate to be converted to a 1.6mm Laser Cut Aluminum plate to increase strength in such a vital part of the robot. Further testing will follow after the arrival of the new plates, to decide whether the bottom plate should also be converted to 1.6mm Aluminum. At the current time, the robot weighs only **1.2kg**, with a max weight limit for the league of 2.5kg.
+After the first robot was assembled, it was discovered that the initial plates would not be appropriate for use on the robot after a number of plate breakage occurred at relatively low speeds. The initial design used brittle acrylic, as that was only opaque material our robotics laser cutting contact could supply. After some testing, the decision was made for the middle plate to be converted to a 1.6mm Laser Cut Aluminum plate to increase strength in such a vital part of the robot. Further testing will follow after the arrival of the new plates, to decide whether the bottom plate should also be converted to 1.6mm Aluminum. At the current time, the robot weighs only 1.2kg, with a max weight limit for the league of 2.5kg.
 
 As can also be seen in the above image, the motor mounts are slotted in between the two plates to provide an easy, yet strong mounting method. This same setup is also used for the light gate on the front of the robot. We are yet to experience any issue with this system.
 
@@ -68,4 +68,13 @@ The GTF Robots wheels have been used by our team for three years now. These whee
 
 # Light Gate
 
-Continue Here
+To detect whether the ball was in our capture zone, a light gate was fitted. This light gate uses a 5v Laser and and LDR, with the ball breaking the beam whilst in the capture zone. A simple voltage divider was created to send an analog signal to our microcontroller.
+
+![lightGate](../images/lightGate.jpg)
+
+The voltage divider is located on the side of the LDR mount, and can easily be replaced if damaged during gameplay.
+
+------
+
+# Assembly Guide
+
