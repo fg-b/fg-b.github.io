@@ -18,6 +18,8 @@
 
 [Hardware Docs](html/hardware.html)
 
+[Development](html/development.html)
+
 [Pins](html/pins.html)
 
 ---
