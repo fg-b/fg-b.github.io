@@ -4,8 +4,6 @@
 
 -----
 
-[TOC]
-
 # Installation 
 
 To use our code source, clone the repo
