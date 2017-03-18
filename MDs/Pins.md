@@ -63,25 +63,25 @@
 |                      |                 |                 |
 | ***Light Teensy***   |                 |                 |
 | **Section**          | **Function**    | **Pin**         |
-| **LIGHT SENSORS**    | SENSOR 0        | A1              |
-|                      | SENSOR 1        | A2              |
-|                      | SENSOR 2        | A3              |
-|                      | SENSOR 3        | A4              |
-|                      | SENSOR 4        | A5              |
-|                      | SENSOR 5        | A6              |
-|                      | SENSOR 6        | A7              |
-|                      | SENSOR 7        | A8              |
-|                      | SENSOR 8        | A9              |
-|                      | SENSOR 9        | A10             |
-|                      | SENSOR 10       | A11             |
-|                      | SENSOR 11       | A12             |
-|                      | SENSOR 12       | A13             |
-|                      | SENSOR 13       | A14             |
-|                      | SENSOR 14       | A15             |
-|                      | SENSOR 15       | A16             |
-|                      | SENSOR 16       | A17             |
-|                      | SENSOR 17       | A18             |
-|                      | SENSOR 18       | A19             |
+| **LIGHT SENSORS**    | SENSOR 0        | A0              |
+|                      | SENSOR 1        | A1              |
+|                      | SENSOR 2        | A2              |
+|                      | SENSOR 3        | A3              |
+|                      | SENSOR 4        | A4              |
+|                      | SENSOR 5        | A5              |
+|                      | SENSOR 6        | A6              |
+|                      | SENSOR 7        | A7              |
+|                      | SENSOR 8        | A8              |
+|                      | SENSOR 9        | A9              |
+|                      | SENSOR 10       | A10             |
+|                      | SENSOR 11       | A11             |
+|                      | SENSOR 12       | A12             |
+|                      | SENSOR 13       | A13             |
+|                      | SENSOR 14       | A14             |
+|                      | SENSOR 15       | A15             |
+|                      | SENSOR 16       | A16             |
+|                      | SENSOR 17       | A17             |
+|                      | SENSOR 18       | A18             |
 |                      |                 |                 |
 | ***Sensors***        |                 |                 |
 | **Section**          | **Function**    | **Address/Bus** |
