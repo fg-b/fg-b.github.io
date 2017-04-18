@@ -315,13 +315,16 @@ Unfortunately the Rotation Controller contains code that is very specific to our
 #include <Kicker.h>
 #include <Buzzer.h>
 #include <fgbcommon.h>
+#include <PixyI2C.h>
 #include <Motor.h>
 #include <Pins.h>
 
 Motor motorD = Motor(MOTOR_A_PWM, MOTOR_A_DIR, MOTOR_A_BRK, MOTOR_A_REV); //Really Motor D
-Motor motorA = Motor(MOTOR_B_PWM, MOTOR_B_DIR, MOTOR_B_BRK, MOTOR_B_REV); //Really Motor A
+Motor motorC = Motor(MOTOR_B_PWM, MOTOR_B_DIR, MOTOR_B_BRK, MOTOR_B_REV); //Really Motor A
 Motor motorB = Motor(MOTOR_C_PWM, MOTOR_C_DIR, MOTOR_C_BRK, MOTOR_C_REV);
-Motor motorC = Motor(MOTOR_D_PWM, MOTOR_D_DIR, MOTOR_D_BRK, MOTOR_D_REV);
+Motor motorA = Motor(MOTOR_D_PWM, MOTOR_D_DIR, MOTOR_D_BRK, MOTOR_D_REV);
+
+//C, A, B, D
 
 volatile uint16_t dataOut[DATA_LENGTH] = {};
 volatile uint16_t dataIn[DATA_LENGTH] = {};
@@ -337,44 +340,38 @@ double tsopAng = 0.00;
 int counter = 0;
 
 void setup(){
+    Wire1.begin(I2C_MASTER, 0x00, I2C_PINS_29_30, I2C_PULLUP_EXT, 400000);
+    Wire1.setDefaultTimeout(200000); // 200ms
+
     pinMode(A12, INPUT);
-    MASTER_TEENSY.begin_MASTER(ALT_SCK, MOSI, MISO, CS1, CS_ActiveLOW);
-    MASTER_TEENSY.setCTAR(CTAR_0, 16, SPI_MODE0, LSB_FIRST, SPI_CLOCK_DIV8);
+    MASTER_TEENSY.begin_MASTER(ALT_SCK, MOSI, MISO, CS0, CS_ActiveHIGH); //Begin Master
+    MASTER_TEENSY.setCTAR(CTAR_0, 16, SPI_MODE0, LSB_FIRST, SPI_CLOCK_DIV8); //Set Packet Cache
+
+    MASTER_TEENSY.enableCS(CS4, CS_ActiveHIGH); //Set CS for TSOPs
+    //MASTER_TEENSY.enableCS(CS0, CS_ActiveHIGH); //Need to set CS for LIGHTs
+    direction.init();
 }
 
 void loop(){
-    MASTER_TEENSY.txrx16(dataOut, dataIn, DATA_LENGTH, CTAR_0, CS0);
+    //Motor Transmission
+    MASTER_TEENSY.txrx16(dataOut, dataIn, DATA_LENGTH, CTAR_0, CS4); //Pull data from TSOPs
     double angle = dataIn[0];
+    Serial.println(angle);
     delay(50);
-    direction.calcMotors(angle, 0.00);
+    //Light Transmission
+    // MASTER_TEENSY.txrx16(dataOut, dataIn, DATA_LENGTH, CTAR_0, CS4); //Pull data from LIGHTs
+    // double lightAngle = dataIn[0];
+    // Serial.println(lightAngle);
 
-    // kicker.kickerReady(); //Kicker
-    // kicker.checkLightGate();
-    // kicker.kickBall();
+    direction.calcMotors(angle, 0.00, 0.00);
 }
-//
-// void testDirection(){
-//     direction.setPWM(255);
-//     delay(2000);
-//     direction.setPWM(-255);
-//     delay(2000);
-// }
-//
+
 void blinkLED(){
     digitalWrite(13, HIGH);
     delay(1000);
     digitalWrite(13, LOW);
     delay(1000);
 }
-//
-// void incrementSpeed(){
-//     direction.setPWM(counter);
-//     delay(100);
-//     counter++;
-//     if(counter >= 255){
-//         counter = 0;
-//     }
-// }
 ```
 
 #### TSOP
@@ -390,7 +387,7 @@ void blinkLED(){
 #include <Pins.h>
 
 ReadTSOPS tsops;
-//
+
 volatile uint16_t dataIn[DATA_LENGTH] = {};
 volatile uint16_t dataOut[DATA_LENGTH] = {};
 
@@ -416,33 +413,38 @@ void spi0_isr(){
 > The Light slave calculates lightsensors and robot / field positions.
 
 ```c++
-//#include <t3spi.h>
-//#include <Light.h>
+#include <t3spi.h>
+#include <Config.h>
+#include <Arduino.h>
+#include <Light.h>
 
-//T3SPI LightSPI;
-//Light Light;
+Light Light;
 
-//int lightValues[19] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+T3SPI LIGHT;
+
+volatile uint16_t dataIn[DATA_LENGTH] = {};
+volatile uint16_t dataOut[DATA_LENGTH] = {};
+
+double lightAngle;
 
 void setup(){
+    Light.init();
     Serial.begin(9600);
-    pinMode(A7, INPUT);
-    //um what is this lol
-    //LightSPI.begin_SLAVE(ALT_SCK, MOSI, MISO, CS1); //Might be wrong CS pin.
-    //LightSPI.setCTAR_SLAVE(16, SPI_MODE0);
+    LIGHT.begin_SLAVE(ALT_SCK, MOSI, MISO, CS0);
+    LIGHT.setCTAR_SLAVE(16, SPI_MODE0);
 
-    //Serial.print(Light.getAngle());
+    NVIC_ENABLE_IRQ(IRQ_SPI0);
 }
 
 void loop(){
-    //Light.getVals(lightValues);
-    //for(int i=0; i < 19; i++){
-      //Serial.print(lightValues[i]);
-      //Serial.print(" ");
-    //}
-    //Serial.println();
-    Serial.println(analogRead(A7));
-    delay(100);
+    Light.readLight();
+    Serial.println(Light.getAngle());
+    lightAngle = Light.getAngle();
+    dataOut[0] = 100;
+}
+
+void spi0_isr(){
+    LIGHT.rxtx16(dataIn, dataOut, DATA_LENGTH);
 }
 ```
 
