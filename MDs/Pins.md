@@ -5,6 +5,11 @@
 -----
 
 # Pins
+
+![teensy1](../images/teensyFront.PNG)
+
+![teensy2](../images/teensyBack.PNG)
+
 | ***Motor Teensy***   |                 |                 |
 | -------------------- | --------------- | --------------- |
 | **Section**          | **Function**    | **Pin**         |
