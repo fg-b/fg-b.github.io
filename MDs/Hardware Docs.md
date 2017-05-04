@@ -34,7 +34,7 @@ This can be seen in the diagram below:
 
 The solenoid used on the 2017 robot was a Takaha Kiko CB1037 open frame push solenoid. This solenoid is powered at up to 70V through the use of a voltage pump and a charging circuit. This circuit stores 2000uf of charge at 50V for each kick. The setup can be seen below:
 
-![solenoidCircuit1](../images/SolenoidCircuit1.jpg)
+![solenoidCircuit1](../images/SolenoidCircuit1.JPG)
 
 On the end of the solenoid, a 15mm x 3mm Carbon Fibre strip is used as a kicking surface. The strip is joined to two carbon fibre rods to prevent the kicker plate from rotating during gameplay. These rods slide through a guide mounted over the solenoid. This whole assembly is bolted directly between the lower and middle plate to prevent movement and increase the rigidity of the entire structure.
 
