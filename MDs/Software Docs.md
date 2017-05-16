@@ -9,27 +9,27 @@
 To use our code source, clone the repo
 
 ```shell
-mkdir FG&BCode
-cd FG&BCode
-git clone https://github.com/TomFraser/FG-B-2017.git
+$ mkdir FG&BCode
+$ cd FG&BCode
+$ git clone https://github.com/TomFraser/FG-B-2017.git
 ```
 
 Install Platformio for arduino compiler
 
 ```shell
-pip3 install platformio
+$ pip3 install platformio
 ```
 
 Run and upload code
 
 ```shell
-cd FG-B-2017
-cd [] #Motor, Light or TSOP
+$ cd FG-B-2017
+$ cd [] #Motor, Light or TSOP
 
 #To Compile
-pio run
+$ pio run
 #To Upload
-pio run -t upload
+$ pio run -t upload
 ```
 
 
