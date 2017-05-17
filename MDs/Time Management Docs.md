@@ -41,7 +41,7 @@ Temp Docs
 | **3.3**      | Compass Library                   | Write, test and review Libraries         | Alistair & Fraser                        | Complete       | ~100%        |
 | **3.4**      | TSOP Library                      | Write, test and review Libraries         | Alistair & Fraser                        | Complete       | ~100%        |
 | **3.5**      | Ultrasonic Library                | Write, test and review Libraries         | Alistair & Fraser                        | Not started    | ~0%          |
-| **3.6**      | Pixie Library                     | Write, test and review Libraries         | Alistair & Fraser                        | In progress    | ~25%         |
+| **3.6**      | Pixie Library                     | Write, test and review Libraries         | Alistair & Fraser                        | Complete       | ~100%        |
 | **3.7**      | Light Sensor Library              | Write, test and review Libraries         | Alistair & Fraser                        | In progress    | ~25%         |
 | **3.8**      | SPI Library                       | Write, test and review Libraries         | Alistair & Fraser                        | Complete       | ~100%        |
 | **3.9**      | Motor controller Library          | Write, test and review Libraries         | Alistair & Fraser                        | Complete       | ~100%        |
