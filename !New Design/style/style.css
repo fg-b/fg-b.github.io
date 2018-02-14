@@ -1,0 +1,116 @@
+@charset "utf-8";
+
+@font-face {
+	font-family: SFMono;
+	src: url(../style/font/SFMono-Light.otf) format("opentype");
+}
+
+@font-face {
+	font-family: SFMono;
+	font-style: italic;
+	src: url(../style/font/SFMono-Light.otf) format("opentype");
+}
+
+@font-face {
+	font-family: SFMono;
+	font-weight: bold;
+	src: url(../style/font/SFMono-Bold.otf) format("opentype");
+}
+
+bold {
+	font-weight: bold;
+}
+
+h1 {
+	font-family: SFMono;
+	font-size: 2.4vw;
+}
+
+h2 {
+	font-family: SFMono;
+	font-size: 1.2vw;
+	font-weight: normal;
+}
+
+h3 {
+	font-family: SFMono;
+	font-size: 1vw;
+	font-weight: normal;
+}
+
+hr {
+	color: #555555;
+  	border: 0;
+    height: 1px;
+    background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+    background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+    background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+    background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+label {
+	font-size: 20px;
+	float: right;
+	padding-right: 2.5%;
+}
+
+input, textarea {
+	float: left;
+	margin-left: 5%;
+}
+
+#wrapper {
+	min-height: 100%;
+	position: relative;
+}
+
+#nav {
+	background: #FFF333;
+	background-size: cover;
+	background-position: center;
+
+	width: 100%;
+	height: 100%;
+  text-align: center;
+}
+
+  #titleWrapper {
+    height: 40vh;
+    width: 70vw;
+    margin-right: 15vw;
+    margin-left: 15vw;
+    margin-top: 50vh;
+    margin-bottom: 10vh;
+  }
+
+    #title {
+      font-family: SFMono;
+      font-size: 15vh;
+    }
+
+    #subTitle {
+      font-family: SFMono;
+      font-size: 2.5vh;
+    }
+
+#body {
+	text-align: center;
+	background-color: #33FF49;
+	padding-bottom: 40px;
+}
+
+#footer {
+  background: #F933FF;
+	position: absolute;
+	bottom: 0;
+
+	text-align: center;
+	width: 100%;
+	height: 40px;
+}
