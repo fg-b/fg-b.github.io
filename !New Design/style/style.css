@@ -28,13 +28,13 @@ h1 {
 
 h2 {
 	font-family: SFMono;
-	font-size: 1.2vw;
+	font-size: 1.5vw;
 	font-weight: normal;
 }
 
 h3 {
 	font-family: SFMono;
-	font-size: 1vw;
+	font-size: 0.9vw;
 	font-weight: normal;
 }
 
@@ -71,39 +71,78 @@ input, textarea {
 }
 
 #nav {
-	background: #FFF333;
+	background: url(../images/titleCover.JPG);
 	background-size: cover;
 	background-position: center;
 
 	width: 100%;
-	height: 100%;
+	height: 100vh;
   text-align: center;
 }
 
+  #titleSpacer {
+    height: 70vh;
+    width: 100%;
+  }
+
   #titleWrapper {
-    height: 40vh;
-    width: 70vw;
-    margin-right: 15vw;
-    margin-left: 15vw;
-    margin-top: 50vh;
-    margin-bottom: 10vh;
+    height: 20vh;
+    width: 100%;
+  }
+
+  #FGBLogo {
+    width: 15vw;
+    padding-left: 5vw;
+    float: left;
+  }
+
+  #BBCLogo {
+    width: 15vw;
+    padding-right: 5vw;
+    float: right;
   }
 
     #title {
       font-family: SFMono;
-      font-size: 15vh;
+      color: #EEEEEE;
+      font-size: 6vw;
     }
 
     #subTitle {
       font-family: SFMono;
-      font-size: 2.5vh;
+      color: #EEEEEE;
+      font-size: 1.5vw;
     }
 
 #body {
 	text-align: center;
-	background-color: #33FF49;
+	width:100%;
+	background-color: #FFFFFF;
 	padding-bottom: 40px;
 }
+
+	.bodySection {
+		text-align: center;
+		background-color: #DDDDDD;
+		color: #016F54;
+		border-radius: 2vw;
+		width: 78vw;
+		padding: 1vw;
+		margin-left: 10vw;
+		margin-right: 10vw;
+	}
+
+	.homeImage {
+		width: 90%;
+		pointer-events: none;
+		border-radius: 20px;
+	}
+
+	#teamTable {
+		width: 90%;
+		margin-left: 5%;
+		margin-right: 5%;
+	}
 
 #footer {
   background: #F933FF;
