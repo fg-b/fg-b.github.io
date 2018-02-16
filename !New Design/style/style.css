@@ -52,12 +52,16 @@ body {
 	margin: 0;
 	padding: 0;
 	height: 100%;
+	font-family: SFMono;
+	font-weight: normal;
+	text-align: center;
 }
 
 label {
 	font-size: 20px;
 	float: right;
 	padding-right: 2.5%;
+	overflow: hidden;
 }
 
 input, textarea {
@@ -103,12 +107,14 @@ input, textarea {
   }
 
     #title {
+		overflow: hidden;
       font-family: SFMono;
       color: #EEEEEE;
       font-size: 6vw;
     }
 
     #subTitle {
+		overflow: hidden;
       font-family: SFMono;
       color: #EEEEEE;
       font-size: 1.5vw;
@@ -123,11 +129,11 @@ input, textarea {
 
 	.bodySection {
 		text-align: center;
-		background-color: #DDDDDD;
+		background-color: #FFFFFF;
 		color: #016F54;
-		border-radius: 2vw;
+		border-radius: 1vw;
 		width: 78vw;
-		padding: 1vw;
+		padding: 0vw;
 		margin-left: 10vw;
 		margin-right: 10vw;
 	}
@@ -153,3 +159,80 @@ input, textarea {
 	width: 100%;
 	height: 40px;
 }
+
+
+.button-wrapper{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+*, *::before, *::after{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.button-wrapper{
+    padding: 6px;
+	margin-top: 120px;
+    margin-left: 50px;
+    position: relative;
+    display: inline-block;
+    border: 6px solid #01a27a;
+    transition: all .1s ease-in-out;
+    z-index: 99;
+}
+
+.button-wrapper.active{
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.button-wrapper:focus, .button-wrapper:hover{
+    border: 12px solid #016F54;
+    padding: 0px;
+}
+
+.button-wrapper, .button-wrapper > span{
+    cursor: pointer;
+}
+
+.button-wrapper > span{
+    min-width: 340px;
+}
+
+.button-inner{
+    display: inline-block;
+    color: white;
+    font-weight: 100;
+    font-size: 2em;
+    line-height: 1;
+    text-transform: uppercase;
+    background: #01a27a;
+    padding: 1em 2em;
+    transition: all .1s ease-in-out;
+}
+
+.button-inner:focus, .button-inner:hover{
+    background: #016F54;
+    padding: 1em 2em;
+    margin: 0;
+}
+
+.span1{
+    display: inline;
+}
+
+.span2{
+    display: none;
+}
+
+/* For Changing text on hover (Recomple sass plz)
+.btn:focus .txt-a,
+.btn:hover .txt-a { display: none; }
+.btn:focus .txt-b,
+.btn:hover .txt-b { display: inline; }
+*/
+
+/*# sourceMappingURL=style.css.map */
