@@ -21,6 +21,22 @@ bold {
 	font-weight: bold;
 }
 
+italic{
+	font-family: SFMono;
+	font-style: italic;
+	src: url(../style/font/SFMono-Light.otf) format("opentype");
+}
+
+a:link, a:visited {
+    color: #FF0000;
+    text-decoration: none;
+    cursor: grab;
+}
+
+a:link:active, a:visited:active {
+    color: #FF0000;
+}
+
 h1 {
 	font-family: SFMono;
 	font-size: 2.4vw;
@@ -28,7 +44,7 @@ h1 {
 
 h2 {
 	font-family: SFMono;
-	font-size: 1.5vw;
+	font-size: 1.2vw;
 	font-weight: normal;
 }
 
@@ -72,8 +88,8 @@ input, textarea {
 
 #nav {
 	background: url(../images/titleCover.JPG);
-	background-size: cover;
-	background-position: center;
+	background-size: 110%;
+	background-position: 50% 0%;
 
 	width: 100%;
 	height: 100vh;
@@ -93,17 +109,20 @@ input, textarea {
   #FGBLogo {
     width: 15vw;
     padding-left: 5vw;
+		padding-top: 5vh;
     float: left;
   }
 
   #BBCLogo {
     width: 15vw;
     padding-right: 5vw;
+		padding-top: 5vh;
     float: right;
   }
 
     #title {
       font-family: SFMono;
+			padding-top: 8vh;
       color: #EEEEEE;
       font-size: 6vw;
     }
@@ -126,10 +145,10 @@ input, textarea {
 		background-color: #DDDDDD;
 		color: #016F54;
 		border-radius: 2vw;
-		width: 78vw;
-		padding: 1vw;
-		margin-left: 10vw;
-		margin-right: 10vw;
+		width: 84vw;
+		padding: 3vw;
+		margin-left: 5vw;
+		margin-right: 5vw;
 	}
 
 	.homeImage {
