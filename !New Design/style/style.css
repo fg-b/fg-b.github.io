@@ -50,7 +50,7 @@ h2 {
 
 h3 {
 	font-family: SFMono;
-	font-size: 0.9vw;
+	font-size: 1vw;
 	font-weight: normal;
 }
 
@@ -161,6 +161,10 @@ input, textarea {
 		width: 90%;
 		margin-left: 5%;
 		margin-right: 5%;
+	}
+
+	.sponsor {
+		width: 75%;
 	}
 
 #footer {
