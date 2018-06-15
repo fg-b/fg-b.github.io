@@ -161,9 +161,10 @@ input, textarea {
 
 	.bodySection {
 		text-align: center;
-		background-color: #DDDDDD;
+		background-color: #FFFFFF;
 		color: #016F54;
 		border-radius: 2vw;
+		border: 0.15vw solid #016F54;
 		width: 84vw;
 		padding: 3vw;
 		margin-left: 5vw;
